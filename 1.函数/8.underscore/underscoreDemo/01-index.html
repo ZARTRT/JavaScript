@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./02-_.js"></script>
+    <script>
+        // underscore流式编程的意义在与对象裹挟着结果参数
+        var arr = [1,1,2,3,3,4,5,6,6,7,8,"A","a"]
+        // 对象方法调用
+        // console.log(_.chain(arr).unique(function (item) {
+        //     return typeof item === "string" ? item.toLowerCase() :item
+        // }).add().ending());
+        // 函数实例调用
+        console.log(_(arr).chain().unique(function (item) {
+            return typeof item === "string" ? item.toLowerCase() :item
+        }).add().ending());
+    </script>
+</body>
+</html>

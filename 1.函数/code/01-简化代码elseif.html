@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var extend = function () {
+            if (arguments.length == 1) {
+                for (var item in arguments[0]) {
+                    this[item] = arguments[0][item]
+                }
+            } else if (arguments.length == 2) {
+                for (var item in arguments[1]) {
+                    arguments[0][item] = arguments[1][item]
+                }
+            }
+            console.log(arguments);
+        }
+
+        var extenda = function () {
+            var source = arguments[0]; // for in 的对象,默认等于第一个参数
+            var target = this; // 接受拷贝的对象默认等于this
+            if (arguments.length == 2) {
+                source = arguments[1];
+                target = arguments[0]
+            }
+            for (var item in source) {
+                target[item] = source[item]
+            }
+            console.log(arguments);
+        }
+        extend({ name: 'zhangsan' }, { age: 18, name1: 'lisi' })
+        // extenda({ name: 'zhangsan' }, { age: 18, name1: 'lisi' })
+    </script>
+</body>
+
+</html>

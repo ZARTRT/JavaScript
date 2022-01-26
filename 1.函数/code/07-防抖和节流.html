@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>防抖和节流</title>
+    <style>
+        #content {
+            width: 300px;
+            height: 300px;
+            background-color: #ffb;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content"></div>
+    <script>
+        let num = 1;
+        let oDiv = document.getElementById('content');
+        let changeNum = function () {
+            oDiv.innerHTML = num++;
+        }
+
+        let deBounce = (fn, delay) => {
+            let timer = null;
+            return function (...agrs) {
+                if (timer) {
+                    clearTimeout(timer)
+                }
+                timer = setTimeout(() => {
+                    fn(...agrs);
+                    console.log(this);
+                }, delay)
+            }
+        }
+
+        oDiv.onmousemove = deBounce(changeNum, 3000)
+        // oDiv.onmousemove = changeNum;
+    </script>
+</body>
+
+</html>

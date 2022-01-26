@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>今天怎么说</title>
+</head>
+
+<body>
+    <script>
+        let arr = ['张健', '王翔', '易锋']
+        let drinking = '';
+        for (let i = 0; i < arr.length; i++) {
+            name = arr[i];
+            drinking += prompt(`请问${name}今天龙华喝酒吗`)
+            if (drinking.indexOf('不') === -1) {
+                alert(`好样的${name}`);
+            } else {
+                alert(`${name}掉链子，后面的不用问了`);
+                break;
+            }
+        }
+    </script>
+</body>
+
+</html>

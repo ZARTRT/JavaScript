@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #content {
+        margin: 0 auto;
+        width: 200px;
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+        color: #000;
+        background-color: #ffb;
+        font-size: 60px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content"></div>
+    <script>
+      let num = 1;
+      let oDiv = document.getElementById("content");
+      let changeNum = function () {
+        oDiv.innerHTML = num++;
+      };
+      let deBounce = (fn, delay) => {
+        let timer = null;
+        return function () {
+          if (timer) {
+            clearTimeout(timer);
+          }
+          timer = setTimeout(() => {
+            fn();
+            console.log(this);
+          }, delay);
+        };
+      };
+      oDiv.onmousemove = deBounce(changeNum, 1000);
+    </script>
+  </body>
+</html>

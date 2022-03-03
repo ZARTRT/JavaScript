@@ -11,7 +11,7 @@
 
 // 二、函数声明提前
 // function fn() {
-//   x();
+//   x(); // 1
 //   function x() {
 //     console.log(1);
 //   }

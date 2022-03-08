@@ -2,13 +2,13 @@
 
 ##### 1.术语
 
-![image-20210419144827649](Promise.assets/image-20210419144827649.png)
+<img src="Promise.assets/image-20210419144827649.png" alt="image-20210419144827649" style="zoom:25%;" align="left"/>
 
 ##### 2.要求
 
-2.1 `promise`的状态被改变以后就不能再改变了
+2.1要求就是：一个 `promise`的状态被改变以后就不能再改变了
 
-![image-20210419145157221](Promise.assets/image-20210419145157221.png)
+<img src="Promise.assets/image-20210419145157221.png" alt="image-20210419145157221" style="zoom:25%;" align="left"/>
 
 2.2  `promise`要有一个`then`方法，而`then`方法需要有一定的条件。
 
@@ -16,7 +16,7 @@
 
 ​	2.2.2 `then`可以通过链式被多次调用，每次都会返回一个`promise`实例，而这个实例里必须有`then`方法
 
-​	2.2.3 `promise`实例里面每次被注册的`onFulfilled`和`onReject`将会按照被注册的顺序一一被执行，最后`then`方法会返回一个`promise`（值和状态）![image-20210419151404008](Promise.assets/image-20210419151404008.png)
+​	2.2.3 `promise`实例里面每次被注册的`onFulfilled`和`onReject`将会按照被注册的顺序一一被执行，最后`then`方法会返回一个`promise`（值和状态）<img src="Promise.assets/image-20210419151404008.png" alt="image-20210419151404008" style="zoom: 33%;" align="left"/>
 
 2.3 `promise`解析过程（这里很复杂，我没有空写）
 
@@ -34,12 +34,12 @@
 
 ​	第五组，返回的结果以完成最快的`promise`的状态为准
 
-![image-20210419153645013](Promise.assets/image-20210419153645013.png)
+<img src="Promise.assets/image-20210419153645013.png" alt="image-20210419153645013" style="zoom:25%;" align="left"/>
 
 3.2 `Promise`实例方法
 
-![image-20210419154457986](Promise.assets/image-20210419154457986.png)
+<img src="Promise.assets/image-20210419154457986.png" alt="image-20210419154457986" style="zoom:25%;" align="left"/>
 
 3.1 注意点
 
-![image-20210419155002159](Promise.assets/image-20210419155002159.png)
+<img src="Promise.assets/image-20210419155002159.png" alt="image-20210419155002159" style="zoom:25%;" align="left"/>

@@ -6,19 +6,27 @@
 
 ##### 2.要求
 
-2.1要求就是：一个 `promise`的状态被改变以后就不能再改变了
+2.1**要求一**：一个 `promise`的状态被改变以后就不能再改变了
 
 <img src="Promise.assets/image-20210419145157221.png" alt="image-20210419145157221" style="zoom:25%;" align="left"/>
 
-2.2  `promise`要有一个`then`方法，而`then`方法需要有一定的条件。
+2.2 **要求二**： `promise`要有一个`then`方法，而`then`方法需要有一定的条件。
+
+<img src="Promise.assets/image-20210419151404008.png" alt="image-20210419151404008" style="zoom: 33%;" align="left"/>
 
 ​	2.2.1 `then`的参数是两个函数，也可以不是函数（那会被直接忽略掉）
 
 ​	2.2.2 `then`可以通过链式被多次调用，每次都会返回一个`promise`实例，而这个实例里必须有`then`方法
 
-​	2.2.3 `promise`实例里面每次被注册的`onFulfilled`和`onReject`将会按照被注册的顺序一一被执行，最后`then`方法会返回一个`promise`（值和状态）<img src="Promise.assets/image-20210419151404008.png" alt="image-20210419151404008" style="zoom: 33%;" align="left"/>
+​	2.2.3 `promise`实例里面每次被注册的`onFulfilled`和`onReject`将会按照被注册的顺序一一被执行，最后`then`方法会返回一个`promise`（值和状态）
 
-2.3 `promise`解析过程（这里很复杂，我没有空写）
+2.3 `promise`解析过程（这里很复杂）
+
+<img src="Promise.assets\image-20220308153002570.png" alt="image-20220308153002570"  align="left" style="zoom:50%;" />
+
+​	x是then参数返回的值
+
+​	
 
 ##### 3.ES6 Promise API
 

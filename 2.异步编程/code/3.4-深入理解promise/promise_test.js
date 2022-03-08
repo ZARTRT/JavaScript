@@ -18,6 +18,7 @@
 //     then(2).
 //     then(Promise.resolve(3)).
 //     then(console.log);
+
 // 上述代码片段2的分解代码如下：
 const promise1 = Promise.resolve(1); // resolve接受的参数会按照A+规范执行，返回的状态是fulfilled，值为1
 const promise2 = promise1.then(2); // then参数如果是非函数直接忽略，并延续上一个promise的状态和参数

@@ -4,7 +4,7 @@ let o = {x:1}
 console.log('x' in o); // true
 console.log('y' in o); // false
 console.log('toString' in o); // true
-// hasOwnProperty，检测是否时对象自身的属性，不检测原型继承下来的
+// hasOwnProperty，检测是否是对象自身的属性，不检测原型继承下来的
 let o = {x:1}
 console.log(o.hasOwnProperty('x')); // true
 console.log(o.hasOwnProperty('y')); // false

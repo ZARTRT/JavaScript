@@ -1,7 +1,7 @@
 // 一、typeOf 检测变量数据类型，
 // 缺点：在判断对象类型时有局限性，不知道具体是个什么样的对象数据类型
 
-// 二、instenceof (obj instanceof constructor)是判断变量是否是给定的实例，
+// 二、instanceof (obj instanceof constructor)是判断变量是否是给定的实例，
 // 缺点：无法识别原始类型
 let a = new Date();
 console.log(a instanceof Date); //true

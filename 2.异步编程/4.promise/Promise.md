@@ -32,15 +32,15 @@
 
 3.1 静态方法
 
-​	第一组，相当于直接指定了`Promise`的状态为成功
+​	第一组，resolve相当于直接指定了`Promise`的状态为成功
 
-​	第二组，相当于直接指定了`Promise`的状态为失败
+​	第二组，reject相当于直接指定了`Promise`的状态为失败
 
-​	第三组，当所有的`Promsise`状态为成功才返回成功，只要其中一个状态为失败，那最后就返回失败
+​	第三组，all当所有的`Promsise`状态为成功才返回成功，只要其中一个状态为失败，那最后就返回失败
 
-​	第四组，当所有的`Promsise`状态发生改变以后，不管成功还是失败最后都返回成功
+​	第四组，allSettled当所有的`Promsise`状态发生改变以后，不管成功还是失败最后都返回成功
 
-​	第五组，返回的结果以完成最快的`promise`的状态为准
+​	第五组，race返回的结果以完成最快的`promise`的状态为准
 
 <img src="Promise.assets/image-20210419153645013.png" alt="image-20210419153645013" style="zoom:25%;" align="left"/>
 
@@ -48,6 +48,17 @@
 
 <img src="Promise.assets/image-20210419154457986.png" alt="image-20210419154457986" style="zoom:25%;" align="left"/>
 
-3.1 注意点
+##### 4 注意点
 
 <img src="Promise.assets/image-20210419155002159.png" alt="image-20210419155002159" style="zoom:25%;" align="left"/>
+
+##### 5 实践
+
+不要忘记catch捕捉错误，window上我们可以通过onerror来捕获错误，但是promise的错通过windows上的onerror监听不到，所以用catch。
+
+then方法中使用return，return一个值就是promise的value，因为我们希望下一步的promise要知道上一步的promise的值是什么，这样不容易出错
+
+传递函数给then方法，传其他的没有多大的意义（了解其原因请参考promise/A+规范）
+
+不要把promise写成嵌套，因为这样又回到了之前的地狱回调，失去了promise的意义。
+

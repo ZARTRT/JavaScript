@@ -4,6 +4,12 @@
 
 ##### 一、迭代器
 
+执行createIterator函数返回一个对象并赋值给iterator
+
+iterator调用next方法
+
+下图是用es5手写的一个迭代器
+
 <img src="generator函数.assets/image-20210421101819218.png" alt="image-20210421101819218" style="zoom:25%;" align="left"/>
 
 ##### 二、两个协议

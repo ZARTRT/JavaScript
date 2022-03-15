@@ -1,4 +1,4 @@
-# PromiseA+规范
+# [PromiseA+规范](https://www.jianshu.com/p/e0f91e03d6c1)
 
 ##### 1.术语
 

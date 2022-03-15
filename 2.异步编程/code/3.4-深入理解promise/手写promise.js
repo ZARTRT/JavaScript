@@ -130,10 +130,10 @@ class Promise {
     fn(
       (value) => {
         // fulfilledPromise(this, value);
-        resolvePromise(this, value);
+        resolvePromise(this, value); // this:当前promise实例  value:resolvePromise回调函数传进来的参数
       },
       (reason) => {
-        rejectedPromise(this, reason);
+        rejectedPromise(this, reason); // this:当前promise实例  value:rejectedPromisee回调函数传进来的错误信息
       }
     );
   }
@@ -147,6 +147,7 @@ class Promise {
       }
       setTimeout(() => {
         try {
+          // 如果onFulfilled是一个函数，将拿到当前promise实例值，
           const x = onFulfilled(promise1.value);
           resolvePromise(promise2, x);
         } catch (error) {
@@ -167,6 +168,7 @@ class Promise {
         }
       }, 0);
     }
+    // 为PENDING状态时，then里面的callback是不能执行的，所以要等决议一个非PENDING状态再去执行then里的回调
     if (promise1.status === statusMap.PENDING) {
       onFulfilled = isFunction(onFulfilled)
         ? onFulfilled
@@ -212,3 +214,5 @@ Promise.deferred = function () {
   return deferred;
 };
 module.exports = Promise;
+
+

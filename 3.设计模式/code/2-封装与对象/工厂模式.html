@@ -11,62 +11,46 @@
 <body>
     <script>
         //弹窗
-        function infoPop() {
+        // function infoPop() {
 
-        }
-        function confirmPop() {
+        // }
+        // function confirmPop() {
 
-        }
-        function cancelPop() {
+        // }
+        // function cancelPop() {
 
-        }
-
-
-
+        // }
 
         function pop(type, content, color) {
             if (this instanceof pop) {
                 var s = new this[type](content, color);
                 return s;
             } else {
-                return new pop(type, content, color);
-            }
-
-            /*if(this instanceof pop){
-              return pop(type,content,color)
-            }else{
-                    
-            }
-            function infoPop(){
-        
-            }
-            function confirmPop(){
-        
-            }
-            function cancelPop(){
-        
+               return new pop(type, content, color);
             }	
         
-            switch(type) {
-              case 'infoPop':
-              return new infoPop(content,color);
-              case 'confirmPop':
-              return new confirmPop(content,color);
-              case 'cancelPop':
-              return new cancelPop(content,color);
-            }*/
+            // switch(type) {
+            //   case 'infoPop':
+            //   return new infoPop(content,color);
+            //   case 'confirmPop':
+            //   return new confirmPop(content,color);
+            //   case 'cancelPop':
+            //   return new cancelPop(content,color);
+            // }
         }
-        pop.prototype.infoPop = function () {
-            console.log('infoPop');
-        }
-        pop.prototype.confirmPop = function () {
+        pop.prototype.infoPop = function (con,col) {
+            console.log('infoPop',con,col);
 
         }
-        pop.prototype.cancelPop = function () {
+        pop.prototype.confirmPop = function (con,col) {
+            console.log('confirmPop',con,col);
+
+        }
+        pop.prototype.cancelPop = function (con,col) {
+            console.log('cancelPop',con,col);
 
         }
 
-        //pop('infoPop','hello','red');
         var data = [
             {
                 type: 'infoPop',
@@ -74,12 +58,12 @@
                 color: 'red'
             },
             {
-                type: 'infoPop',
+                type: 'confirmPop',
                 content: 'good good study',
                 color: 'red'
             },
             {
-                type: 'confirmPop',
+                type: 'cancelPop',
                 content: 'good good study',
                 color: 'green'
             },
@@ -91,8 +75,8 @@
         //     console.log(new pop(item.type, item.content, item.color));
         // })
 
-//jquery
 
+//jquery
 // (function(){
 //     var jQuery = function( selector, context ) {
 // 		return new jQuery.fn.init( selector, context, rootjQuery );

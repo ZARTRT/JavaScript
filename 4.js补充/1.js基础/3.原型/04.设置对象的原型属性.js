@@ -14,3 +14,4 @@ Object.setPrototypeOf()接受两个参数，第一个为子类对象，第二个
 let o = {x:1};
 let a = Object.create(o)
 console.log(Object.getPrototypeOf(a) === o);
+console.log(a.x);

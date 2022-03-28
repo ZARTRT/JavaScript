@@ -25,7 +25,12 @@ basePop.prototype.confirm=function(){
 function ajaxPop(word,size){
   basePop.call(this,word,size);
 }
-ajaxPop.prototype=new basePop();
+// console.log(ajaxPop.prototype);
+// let a = new basePop();
+// ajaxPop.prototype = a;
+ajaxPop.prototype= new basePop();
+// console.log(ajaxPop.prototype);
+
 var hidden=ajaxPop.prototype.hidden;
 ajaxPop.prototype.hidden=function(){
 	hidden.call(this);
@@ -34,9 +39,11 @@ ajaxPop.prototype.hidden=function(){
 var confirm=ajaxPop.prototype.confirm;
 ajaxPop.prototype.confirm=function(){
 	confirm.call(this);
-	console.log(1);
+	console.log(2);
 }
 var pop=new ajaxPop('sendmes',{width:100,height:300});
+// console.log(Object.getPrototypeOf(pop) === a); // true
+
 pop.init();
 pop.confirm();
 

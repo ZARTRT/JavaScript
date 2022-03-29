@@ -70,7 +70,7 @@ counter.prototype.addAfter=function(fn){
 
 //最终计算方法
 counter.prototype.count=function(num){
-   //结果边两
+   //结果变量
    var _resultnum=num;
    //算法队列数组组装
    var _arr=[baseCount];

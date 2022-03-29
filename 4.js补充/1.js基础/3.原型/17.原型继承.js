@@ -1,3 +1,7 @@
+var log =(function() {
+    return global.console.log
+    // return window.console.log
+})()
 // // 手写一个extend 组合继承原型方法
 Function.prototype.extend = function (superClass){
     // this.prototype = Object.create(superClass.prototype);
@@ -17,8 +21,11 @@ function Personb(name,age){
 }
 Personb.extend(new Persona())
 let c = new Personb('zhangjoa',18)
-console.log(c.name);
-console.log(c.func());
+// console.log(c);
+// console.log(c.name);
+// console.log(c.func());
+// log(Persona)
+// log(c)
 
 
 // // 替换原型
@@ -56,9 +63,11 @@ console.log(c.func());
 // }
 // classB.prototype = new classA();
 // classB.prototype.constructor = classB;
-
 // var bb = new classB('world');
 // var cc = new classB('yes');
 // console.log(bb.name);    //world
 // console.log(cc.getName()); //yes
+
+
+
 

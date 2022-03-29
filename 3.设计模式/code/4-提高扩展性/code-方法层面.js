@@ -32,15 +32,15 @@ var decorator = function (dom, fn) {
 };
 
 /* 
-**装饰者模式-vue数组
-**vue2响应式的困境：数据双向绑定defineProperty(a,'b'),只对对象的属性具有响应，而数组没有。所以通过arr[num]在vue2里是没办法触发响应式的。
-**我们在vue里面我们可以通过push shift pop 等方法实现数组的响应式，这是为什么呢？思考：能不能让数组的方法在vue2里面触发响应式
-**这种情况很类似原方法满足不了我们现在的需求，那么我们在原方法的基础上扩展新方法。封装新方法-调用老方法-加入扩展操作 
+** 装饰者模式-vue数组
+** vue2响应式的困境：数据双向绑定defineProperty(a,'b'),只对对象的属性具有响应，而数组没有。所以通过arr[num]在vue2里是没办法触发响应式的。
+** 我们在vue里面我们可以通过push shift pop 等方法实现数组的响应式，这是为什么呢？思考：能不能让数组的方法在vue2里面触发响应式
+** 这种情况很类似原方法满足不了我们现在的需求，那么我们在原方法的基础上扩展新方法。封装新方法-调用老方法-加入扩展操作 
 */
 // 获取数组原型链，不要直接拿数组原型链来重写，这样会修改数组本身原型链的方法，不能这么做。
 var arrayProto = Array.prototype;
 // 拷贝原型链创造新数组，不用重写老原型链（Array.prototype），只在拷贝上操作。这样做只会影响data里面的数组，其他非data里面的数组不会影响到
-// 第四步：将拷贝的数组添加入data 加入响应式。也就是说将vue中的数组全部重写成arrayMethods，并具有了重写后具有了方法响应式。so，data里面的数组通过pop，push等方法能触发响应式
+// 第四步：将拷贝的数组添加入data 加入响应式。也就是说将vue中的数组全部重写成arrayMethods，并具有了重写后具有的方法响应式。so，data里面的数组通过pop，push等方法能触发响应式
 var arrayMethods = Object.create(arrayProto);
 var methodsToPatch = [
   "push",
@@ -77,13 +77,16 @@ if (Array.isArray(value)) {
 }
 
 
-// 三、装饰者模式
-// 说个题外话，其实webpack也就是一个大的命令模式封装而成的。
-//1,用户只管输入他要的命令，不用关心api
-//2,命令和实现解耦，无论命令发生变动，还是实现发生变动，都不会彼此影响
-var myCanvas = function () {};
-myCanvas.prototype.drawCircle = function () {};
-myCanvas.prototype.drawRect = function () {};
+// 三、命令模式 
+/* 
+** 说个题外话，其实webpack也就是一个大的命令模式封装而成的。
+** 1,用户只管输入他要的命令，不用关心api
+** 2,命令和实现解耦，无论命令发生变动，还是实现发生变动，都不会彼此影响
+** 3,三步走 命令（canvasComand）--命令层（excute）--执行（canvasComand）
+*/
+// var myCanvas = function () {};
+// myCanvas.prototype.drawCircle = function () {};
+// myCanvas.prototype.drawRect = function () {};
 
 var canvasComand = (function () {
   var action = {
@@ -96,6 +99,7 @@ var canvasComand = (function () {
     });
   };
 })();
+canvasComand([{type:'drawCircle',radius,number:3}])
 
 // 绘制随机生成图片数量和顺序随机
 var _data = {

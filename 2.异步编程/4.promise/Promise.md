@@ -78,7 +78,9 @@ then方法中使用return，return一个值就是promise的value，因为我们�
 
 ​		3.2 如果是promise里function(resolve, reject)中的回调执行，不用考虑promise的状态。
 
-​		3.3 resolve和reject入参，以及`then(onFulfilled, onRejected)`形参的回调入参，决定了promise的状态
+​		3.3 `then(onFulfilled, onRejected)`形参回调的返回值，决定了新promise的状态
+
+​		3.4resolve和reject的入参，这个入参决定了新promise的状态
 
 4.then方法可以被链式调用，但是当promise为pending时，then里的回调无法被调用执行
 

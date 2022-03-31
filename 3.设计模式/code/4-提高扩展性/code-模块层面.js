@@ -105,7 +105,7 @@ function index() {
   observeOb.fire("indexComment");
 }
 
-//职责链模式-axios源码
+//职责链模式-axios源码(拦截器)
 function Axios(instanceConfig) {
   this.default = instanceConfig;
   this.interceptors = {
@@ -123,7 +123,7 @@ Axios.prototype.request = function () {
     chain.push(interceptor.fulfilled, intersecor.rejected);
   });
   while (chain.length) {
-    promise = promise.then(chain.shift, chain.shift());
+    promise = promise.then(chain.shift(), chain.shift());
   }
   return promise;
 };

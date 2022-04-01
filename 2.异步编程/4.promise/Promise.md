@@ -117,3 +117,42 @@ then方法中使用return，return一个值就是promise的value，因为我们�
 */
 ```
 
+##### 7 感受
+
+###### 1. promise能有序处理异步
+
+###### 2.promise三种状态pending、fulfilled、rejected
+
+1. pending，then里面的callback是不能执行的
+2. fulfilled，返回value值
+3. rejected，返回reson，并能被catch捕捉
+
+###### 3.promise的执行参数(resolve & reject) = > { }
+
+1. resolve函数：直接去决议resolve的传参或者用来指定fulfilled状态
+2. reject函数：指定rejected状态，给reson原因
+
+###### 4.then返回新promise
+
+###### 5.then的参数：
+
+1. 回调在执行前，需要判断当前promise的状态后再判断是不是一个函数
+
+   1. 如果不是则直接返回当前promise
+   2. 如果是一个函数，拿到回调的返回值后进行决议
+
+2. 在resolve决议中判断下一个新的promise状态和赋值（判断回调的返回值）
+
+   1. 是否与then中new的promise相等，是：返回promise，抛出错误
+   2. 是否是promise，是：去判断回调返回值状态
+   3. 是否是对象或者函数，如果是的话
+      1. 处理对thenable兼容，
+      2. 检查是否有then方法，
+      3. then方法是否函数，
+      4. 给then方法传递2个参数，resolvePromise（决议）和rejectedPromise
+      5. 注意的是要给上开关来确保promise状态，类似于Promise对象的状态一旦被改变就不能再改变了
+   4. 都不是，直接将回调返回值给新promise并设置为fulfilled状态
+
+   
+
+   

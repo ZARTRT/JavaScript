@@ -74,12 +74,44 @@
 // func();
 
 
-const promise1 = Promise.resolve(2);
-const promise2 = promise1.then(function (data) {
-  console.log(data);
+// const promise1 = Promise.resolve(2);
+// console.log(promise1);
+// const promise2 = promise1.then(function (data) {
+//   return 1
+// })
+// console.log(promise2);
+// const promise3 = promise2.then(
+//   function (data) {
+//     console.log(data);
+//   }
+// )
+// console.log(promise3);
+// const promise4 = promise3.then(
+//   function (data) {
+//     console.log(data);
+//   }
+// )
+// console.log(promise4);
+
+// let promise1 = Promise.resolve()
+let promise1 = new Promise(function (resolve, reject) {
+  console.log(7000);
 })
-
-let arr = [12,13,55]
-console.log(Math.max.apply(Math,arr));
-// console.log(Math.max());
-
+// console.log(promise1);
+let promise2 = promise1.then(
+  function(){
+    console.log(8000);
+  }
+)
+let promise3 = promise2.then(
+  function(){
+    console.log(9000);
+  }
+)
+let promise4 = promise3.then(
+  function(){
+    return new Promise(function (resolve, reject) {
+    })
+  }
+)
+console.log(promise1);

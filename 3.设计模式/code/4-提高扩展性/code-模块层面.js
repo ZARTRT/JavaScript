@@ -138,8 +138,8 @@ interceptorsManner.prototype.use = function use(fulfilled, rejected) {
   });
 };
 
-//职责链模式-表单颜值
-//表单事件绑定-> >表单前端验证-》表单后端颜值
+//职责链模式-表单验证
+//表单事件绑定-> >表单前端验证-》表单后端验证
 
 input.onblur = function () {
   var _value = input.value;
@@ -164,6 +164,43 @@ function back(_result) {
     resolve((_result += 3));
   });
 }
+//职责链模式-表单验证：暴露接口写法
+function font(_result) {
+  return (_result += 1);
+}
+function back(_result) {
+  return new Promise((resolve, reject) => {
+    resolve((_result += 3));
+  });
+}
+function go(_result) {
+  return (_result += 2);
+}
+function FormTest() {
+  this.arr = [font, back];
+}
+FormTest.prototype.test = function () {
+  var _value = input.value;
+  async function test() {
+    var _result = _value;
+    while (_arr.length > 0) {
+      _result = await _arr.shift()(_result);
+    }
+    return _result;
+  }
+  test().then((res) => {
+    console.log(res);
+  });
+};
+
+FormTest.prototype.add = function (fn) {
+  this.arr.push(fn);
+};
+let form = new FormTest();
+input.onblur = function () {
+  form.add(go);
+  form.test();
+};
 
 //访问者模式-不同角色访问财务
 function report() {

@@ -1,3 +1,5 @@
+// 一般处理模块之间不方便直接沟通，异步与同步模块不方便直接沟通
+
 let log = (function () {
   // return window.console.log
   return global.console.log;

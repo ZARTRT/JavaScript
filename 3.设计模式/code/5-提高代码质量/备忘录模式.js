@@ -33,7 +33,7 @@ moveDiv.prototype.go=function(){
   if(this.nowState<this.stateList.length-1){
       this.nowState++;
       _state=this.stateList[this.nowState];
-      moveDiv(_state.type,_state.num);
+      changeDiv(_state.type,_state.num);
   } 
 }
 moveDiv.prototype.back=function(){
@@ -41,7 +41,7 @@ moveDiv.prototype.back=function(){
     if(this.nowState>=0){
         this.nowState--;
         _state=this.stateList[this.nowState];
-        moveDiv(_state.type,_state.num);
+        changeDiv(_state.type,_state.num);
     }
 }
 

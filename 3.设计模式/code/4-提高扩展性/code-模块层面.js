@@ -183,8 +183,8 @@ FormTest.prototype.test = function () {
   var _value = input.value;
   async function test() {
     var _result = _value;
-    while (_arr.length > 0) {
-      _result = await _arr.shift()(_result);
+    while (this.arr.length > 0) {
+      _result = await this.arr.shift()(_result);
     }
     return _result;
   }

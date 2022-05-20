@@ -18,9 +18,3 @@
 // console.log(a.length)
 // console.log(a.__proto__ === Array.prototype)
 
-let b = new Object();
-b.name ="zhaj";
-b.age = 18;
-console.log(b)
-console.log(b.length)
-console.log(b.__proto__ === Object.prototype)

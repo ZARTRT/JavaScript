@@ -9,7 +9,10 @@ function store(){
   store.install=this;
 }
 store.install=null;
-
+var s1 = new store()
+var s2 = new store()
+s1.store.a = 1;
+console.log(s2); // {store: 1},始终都是同一个对象
 
 //vue-router
 let _Vue;

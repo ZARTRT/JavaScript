@@ -147,7 +147,7 @@ class Promise {
       }
       setTimeout(() => {
         try {
-          // 如果onFulfilled是一个函数，将拿到当前promise实例值，
+          // 如果onFulfilled是一个函数，将拿到当前promise实例值作为参数
           const x = onFulfilled(promise1.value);
           resolvePromise(promise2, x);
         } catch (error) {

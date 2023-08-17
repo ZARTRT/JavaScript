@@ -10,17 +10,28 @@
 
 <body>
     <script>
-        // let add = (a, b) => a + b;
-        // let result = add(1, 2);
+        let add = (a, b) => a + b;
         // console.log(result);
-        function add() {
+        let expect = (res)=> {
             return {
-                abb: () => {
-                    console.log("xixixi");
+                toBe: (actual) => {
+                    if (res !== actual) {
+                        throw new Error(`预期结果为${actual},实际结果为${res}`)
+                    } else {
+                        console.log(`预期结果为${actual},实际结果为${res},测试通过`);
+                    }
                 }
             }
         }
-        console.log(add());
+
+        let test = (desc,fn) => {
+            try {
+                fn();
+            } catch (e) {
+                console.log(`${desc}没有通过`);
+            }
+        }
+        test('加法测试',()=>expect(add(1, 2)).toBe(3))
     </script>
 </body>
 

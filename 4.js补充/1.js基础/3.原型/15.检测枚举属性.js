@@ -19,7 +19,7 @@ for (let key in p) {
     console.log(key); // ['fullName', 'name', 'age'] for in 检测对象自身和原型链上所有可枚举属性
 }
 
-console.log(Object.keys(p)); // ['fullName'] Object.keys 只会检测对象自身添加的枚举属性
+console.log(Object.keys(p)); // ['fullName'] Object.keys 只会检测对象自身添加的可枚举属性
 console.log(Object.getOwnPropertyNames(p)); // ['fullName', 'from'] 只会检测对象自身可枚举和不可枚举属性
 
 

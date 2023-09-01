@@ -1,0 +1,67 @@
+~<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+      * promise 是个对象
+      * 对象有状态，初始状态是pending
+      * 对象有一个值，值的产生时机不定，可能是现在，可能是未来的某个时间点
+      * 状态变化的时候，就是值确定的时候
+      */
+      let url1 = '111/bbb/ccc';
+      let url2 = '222/bbb/ccc';
+      let url3 = '333/bbb/ccc';
+      let i = 1;
+      function func(a, b) {
+        b(i++);
+        b(i++);
+        b(i++);
+        console.log(a);
+      }
+
+     let pro1 = new Promise(function (resolve, reject) {
+        func(url1, function (res1) {
+          resolve(res1);
+        });
+      })
+    //  let pro2 = pro1.then(function url2cb(res1) {
+    //     return new Promise((resolve, reject) => {
+    //       func(url2, function (res2) {
+    //       resolve(res2);
+    //     });
+    //     })
+    //   })
+    //   let pro3 = pro2.then(function url3cb(res2) {
+    //     return new Promise((resolve, reject) => {
+    //       func(url3, function (res3) {
+    //       resolve(res3);
+    //     });
+    //     })
+    //   })
+
+      console.log(pro1);
+      // console.log(pro2);
+      // console.log(pro3);
+
+      // let promise = new Promise (function (resolve, reject) {
+      //   resolve(1)
+      // });
+      // console.log('promise',promise);
+      // let promise1 = promise.then(function fn(data) {
+      //   console.log('data',data);
+      //   return 8
+      // });
+      // console.log('promise1',promise1);
+      // 决议 then里面先要判断当前promise的状态，分三种情况：1.fulfill 2.reject 3.pending
+      //
+      // 在3种情况下判断then的参数是不是函数，如果不是直接返回当前promise。如果是，1.fulfill 2.reject 通过执行回调函数得到的值去决议新的promise状态
+      // 为PENDING状态时，then里面的callback是不能执行的，所以要等决议一个非PENDING状态再去执行then里的回调
+    </script>
+  </body>
+</html>
